@@ -1,0 +1,247 @@
+local function effects()
+sky = Instance.new("Sky", game.Lighting)
+sky.SunAngularSize = 10
+sky.CelestialBodiesShown = true
+local SunRays = Instance.new("SunRaysEffect")
+SunRays.Intensity = 0.05
+local Blur = Instance.new("BlurEffect")
+Blur.Size = 5
+Blur.Parent = game:GetService("Lighting")
+end
+
+local function part()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1, 10010, 66)
+part = Instance.new("Part")
+part.Name = "AntiFallPart"
+part.Size = Vector3.new(50000, 5, 50000)
+part.Color = Color3.fromRGB(0, 100, 0)
+part.Transparency = 0
+part.Anchored = true
+part.Material = Enum.Material.Grass
+part.Position = Vector3.new(-1, 10000, 66)
+part.Parent = game.Workspace
+end
+
+local function npc1()
+    local god = Instance.new("Part", workspace)
+    god.Name = "SpawnedPart"
+    god.Size = Vector3.new(5, 5, 5)
+    god.Color = Color3.fromRGB(255,255,255)
+    god.Material = Enum.Material.Neon
+    god.Anchored = true
+    god.Position = Vector3.new(-460, 10005, 169)
+    
+    local humanoid = Instance.new("Humanoid", god)
+    humanoid.Name = "ADSKer"
+    
+    function CreateChatBubble(instance, message)
+ game.Chat:Chat(instance, message, Enum.ChatColor.White)
+end
+    
+    god.Touched:Connect(function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector * -300
+    CreateChatBubble(god, "DONT TOUCH ME!!!")
+    end)
+    
+prompt = Instance.new("ProximityPrompt")
+    prompt.Name = "Conversation with the Celestial Being"
+    prompt.ActionText = "Use"
+    prompt.Parent = god
+
+    prompt.Triggered:Connect(function(player)
+     ji = math.random(1, 3)
+      if ji == 1 then
+        CreateChatBubble(god, "I know what people want")
+      elseif ji == 2 then
+      CreateChatBubble(god, "When I die, will anyone regret this?")
+      elseif ji == 3 then
+      CreateChatBubble(god, "My dream is getting closer and closer")
+      end
+    end)
+end
+
+local function house1()
+for u = 1, 5 do
+ if u == 1 then
+ boxpos = Vector3.new(-97, 10010, 191)
+pos = Vector3.new(-97, 10005, 191)
+ elseif u == 2 then
+ boxpos = Vector3.new(1, 10010, 713)
+pos = Vector3.new(1, 10005, 713)
+ elseif u == 3 then
+boxpos = Vector3.new(-460, 10010, -169)
+ pos = Vector3.new(-460, 10005, -169)
+ elseif u == 4 then
+boxpos = Vector3.new(-516, 10010, 347)
+ pos = Vector3.new(-516, 10005, 347)
+ elseif u == 5 then
+boxpos = Vector3.new(-448, 10010, 629)
+ pos = Vector3.new(-448, 10005, 629)
+end
+local assetId = tonumber(8959904556)
+  if not assetId then
+   warn("Invalid asset ID")
+   return
+  end
+local user = game.Players.LocalPlayer
+ 
+  local model = game:GetObjects("rbxassetid://" .. assetId)[1]
+model.Parent = workspace
+model:MakeJoints() 
+model:MoveTo(pos)
+
+local box = Instance.new("Part")
+box.Name = "Box"
+box.Size = Vector3.new(4, 4, 4)
+box.Anchored = false
+box.Material = Enum.Material.Wood
+box.Color = Color3.fromRGB(128,128,128)
+box.Position = boxpos
+box.Parent = game.Workspace
+
+bxs = Instance.new("Sound", game.Workspace)
+bxs.Name = "Spooky"
+bxs.Volume = 0.5
+bxs.PlaybackSpeed = 1
+bxs.Looped = false
+
+local rt = 0
+prompt = Instance.new("ProximityPrompt")
+    prompt.Name = "Promi"
+    prompt.ActionText = "Unpack the tools"
+    prompt.Parent = box
+
+    prompt.Triggered:Connect(function()
+   local randomh = math.random(1, 3)
+     rt = rt + 1
+  if randomh == 1 then
+bxs.SoundId = "rbxassetid://9120907213"
+bxs:Play()
+  local plr = game.Players.LocalPlayer
+local tool = Instance.new("Tool",plr.Backpack)
+tool.Name = "Torch"
+tool.GripPos = Vector3.new(0,-0.7,0.4)
+
+local handle = Instance.new("Part",tool)
+handle.Name = "Handle"
+handle.Size = Vector3.new(1,3,1)
+handle.Color = Color3.fromRGB(0,0,0)
+handle.Material = Enum.Material.Wood
+
+local light = Instance.new("PointLight", handle)
+light.Color = Color3.fromRGB(255, 125, 0)
+light.Brightness = 3
+light.Range = 65
+
+local fire = Instance.new("Fire", handle)
+fire.Color = Color3.fromRGB(255,125,0)
+fire.Heat = 10
+fire.Size = 3
+
+local attachment = Instance.new("Attachment")
+attachment.Position = Vector3.new(0, 1.5, 0)
+attachment.Parent = handle
+fire.Parent = attachment
+elseif randomh == 2 then
+bxs.SoundId = "rbxassetid://9120804213"
+bxs:Play()
+local plr = game.Players.LocalPlayer
+local tool = Instance.new("Tool",plr.Backpack)
+tool.Name = "Flashlight"
+tool.GripPos = Vector3.new(0,0,0.4)
+
+local handle = Instance.new("Part",tool)
+handle.Name = "Handle"
+handle.Size = Vector3.new(1,1,3)
+handle.Color = Color3.fromRGB(0,0,0)
+handle.Material = Enum.Material.Metal
+
+local glow = Instance.new("SurfaceLight", handle)
+            glow.Color = Color3.fromRGB(255,255,255)
+            glow.Brightness = 5
+            glow.Range = 150
+            glow.Shadows = true
+elseif randomh == 3 then
+bxs.SoundId = "rbxassetid://9120796401"
+bxs:Play()
+local plr = game.Players.LocalPlayer
+local tool = Instance.new("Tool",plr.Backpack)
+tool.Name = "Radio"
+tool.GripPos = Vector3.new(0,0,0)
+
+local handle = Instance.new("Part",tool)
+handle.Name = "Handle"
+handle.Size = Vector3.new(1,1,1)
+handle.Color = Color3.fromRGB(0,0,0)
+handle.Material = Enum.Material.Metal
+
+Sound = Instance.new("Sound", handle)
+Sound.Name = "Radio Sound"
+Sound.Volume = 1
+Sound.PlaybackSpeed = 1
+Sound.Looped = true
+
+tool.Activated:Connect(function()
+if Sound.IsPlaying then
+ Sound:Stop()
+end
+ game:GetService("RunService").Heartbeat:Wait()
+ Paradise.Volume = 0.25
+local p = math.random(1, 5)
+ if p == 1 then
+ Sound.SoundId = "rbxassetid://1841647093"
+ Sound:Play()
+ elseif p == 2 then
+ Sound.SoundId = "rbxassetid://1848354536"
+ Sound:Play()
+ elseif p == 3 then
+ Sound.SoundId = "rbxassetid://1837879082"
+ Sound:Play()
+ elseif p == 4 then
+ Sound.SoundId = "rbxassetid://9125627017"
+ Sound:Play()
+ elseif p == 5 then
+ Sound.SoundId = "rbxassetid://9046699771"
+ Sound:Play()
+ end
+end)
+
+tool.Unequipped:Connect(function()
+  Sound:Stop()
+  Paradise.Volume = 0.75
+end)
+  end
+     if rt == 3 then
+     box:Destroy()
+   bxs.SoundId = "rbxassetid://18765031110"
+   bxs:Play()
+     end
+    end)
+ end
+end
+
+local function ambient()
+Paradise = Instance.new("Sound", game.Workspace)
+Paradise.Name = "The true meaning of life"
+Paradise.SoundId = "rbxassetid://94688738"
+Paradise.Volume = 1
+Paradise.PlaybackSpeed = 1
+Paradise.Looped = true
+Paradise:Play()
+end
+
+local function TimeofDay()
+local MinutesPerSecond = 2
+local function OnHeartbeat(Delta)
+	game.Lighting.ClockTime += (MinutesPerSecond / 60) * Delta
+end
+
+game:GetService("RunService").Heartbeat:Connect(OnHeartbeat)
+end
+
+coroutine.wrap(effects)()
+coroutine.wrap(part)()
+coroutine.wrap(ambient)()
+coroutine.wrap(house1)()
+coroutine.wrap(TimeofDay)()
+coroutine.wrap(npc1)()
