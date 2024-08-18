@@ -240,7 +240,7 @@ Paradise:Play()
 end
 
 local function TimeofDay()
-local MinutesPerSecond = 2
+local MinutesPerSecond = 1
 local function OnHeartbeat(Delta)
 	game.Lighting.ClockTime += (MinutesPerSecond / 60) * Delta
 end
@@ -399,7 +399,6 @@ game:GetService("RunService").Heartbeat:Connect(function()
 end)
 end
 
-coroutine.wrap(npc2)()
 coroutine.wrap(clocks)()
 coroutine.wrap(effects)()
 coroutine.wrap(part)()
@@ -407,3 +406,4 @@ coroutine.wrap(ambient)()
 coroutine.wrap(house1)()
 coroutine.wrap(TimeofDay)()
 coroutine.wrap(npc1)()
+coroutine.wrap(npc2)()
