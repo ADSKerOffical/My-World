@@ -2,11 +2,13 @@ local function effects()
 sky = Instance.new("Sky", game.Lighting)
 sky.SunAngularSize = 10
 sky.CelestialBodiesShown = true
+sky.StarCount = 0
 local SunRays = Instance.new("SunRaysEffect")
 SunRays.Intensity = 0.05
 local Blur = Instance.new("BlurEffect")
 Blur.Size = 5
 Blur.Parent = game:GetService("Lighting")
+game.Lighting.Ambient = Color3.new(0.541176, 0.541176, 0.541176)
 game.Lighting.FogStart = 0
 game.Lighting.FogEnd = 10000
 game.Lighting.FogColor = Color3.new(0.752941, 0.752941, 0.752941)
