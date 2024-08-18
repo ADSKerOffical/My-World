@@ -7,6 +7,9 @@ SunRays.Intensity = 0.05
 local Blur = Instance.new("BlurEffect")
 Blur.Size = 5
 Blur.Parent = game:GetService("Lighting")
+game.Lighting.FogStart = 0
+game.Lighting.FogEnd = 10000
+game.Lighting.FogColor = Color3.new(0.752941, 0.752941, 0.752941)
 end
 
 local function part()
@@ -245,6 +248,159 @@ end
 game:GetService("RunService").Heartbeat:Connect(OnHeartbeat)
 end
 
+local function npc2()
+local god1 = Instance.new("Part", workspace)
+    god1.Name = "SpawnedPart"
+    god1.Size = Vector3.new(5, 5, 5)
+    god1.Color = Color3.fromRGB(0,0,0)
+    god1.Material = Enum.Material.Neon
+    god1.Anchored = true
+    god1.Position = Vector3.new(334, 10005, 183)
+    
+    local humanoid1 = Instance.new("Humanoid", god)
+    humanoid1.Name = "Saver"
+    
+    function CreateChatBubble(instance, message)
+ game.Chat:Chat(instance, message, Enum.ChatColor.White)
+end
+    
+prompt1 = Instance.new("ProximityPrompt")
+    prompt1.Name = "Conversation with the Celestial Being2"
+    prompt1.ActionText = "Talk"
+    prompt1.Parent = god1
+
+    prompt1.Triggered:Connect(function()
+      prompt1.Enabled = false
+      CreateChatBubble(god1, "Oh man did you see that white cube?")
+       wait(4)
+        CreateChatBubble(god1, "I feel like he's suspicious and he wants us all to die")
+        wait(5)
+        CreateChatBubble(god1, "It is advisable to be wary of this psychopath, in case he does something to people")
+        wait(5)
+        CreateChatBubble(god1, "Although he says that people are ungrateful to his creations, although why does he do this, he just does it for his own pleasure")
+         wait(7)
+         CreateChatBubble(god1, "In any case, I know that at 22:00:00 there will be something strange, so be on the alert")
+          wait(6)
+          CreateChatBubble(god1, "Here is this magic protein, it will definitely help you")
+          local tool = Instance.new("Tool")
+tool.Name = "Protein"
+tool.RequiresHandle = false
+tool.ToolTip = "This Magic Protein Increases Jumping Speed and Power"
+
+local lastPressTime = 0
+tool.Activated:Connect(function()
+  local currentTime = tick()
+            if currentTime - lastPressTime >= 20 then
+                lastPressTime = currentTime 
+Eat = Instance.new("Sound", game.Players.LocalPlayer.Character.Head)
+Eat.Name = "Eat Sound"
+Eat.SoundId = "rbxassetid://3043029786"
+Eat.Volume = 1
+Eat.PlaybackSpeed = 1
+Eat.Looped = false
+Eat:Play()
+              game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = game.Players.LocalPlayer.Character.Humanoid.WalkSpeed * 2.5
+              game.Players.LocalPlayer.Character.Humanoid.JumpPower = game.Players.LocalPlayer.Character.Humanoid.JumpPower * 1.5
+                wait(15)
+              game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+              game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
+            end
+end)
+
+tool.Parent = game.Players.LocalPlayer.Backpack
+           wait(6)
+         prompt1.Enabled = true
+    end)
+    
+    local god2 = Instance.new("Part", workspace)
+    god2.Name = "SpawnedPart"
+    god2.Size = Vector3.new(5, 5, 5)
+    god2.Color = Color3.fromRGB(76,0,153)
+    god2.Material = Enum.Material.Neon
+    god2.Anchored = true
+    god2.Position = Vector3.new(-532, 10010, 362)
+    
+    local humanoid2 = Instance.new("Humanoid", god)
+    humanoid2.Name = "Narrator"
+    
+    function CreateChatBubble(instance, message)
+ game.Chat:Chat(instance, message, Enum.ChatColor.White)
+end
+    
+prompt2 = Instance.new("ProximityPrompt")
+    prompt2.Name = "Conversation with the Celestial Being3"
+    prompt2.ActionText = "Find out the fact"
+    prompt2.Parent = god2
+
+    prompt2.Triggered:Connect(function()
+   local ranf = math.random(1, 5)
+   prompt2.Enabled = false
+    if ranf == 1 then
+     CreateChatBubble(god2, "Fact: The bird on ADSKer's shoulder symbolizes the fact that he is the creator of Budgie Hub and that he has a bird")
+     elseif ranf == 2 then
+     CreateChatBubble(god2, "Fact: The very first hub script was created using the Kavo library")
+     elseif ranf == 3 then
+     CreateChatBubble(god2, "Fact: Many script hubs have not made it onto the network, but perhaps ADSKer will post them soon")
+     elseif ranf == 4 then
+     CreateChatBubble(god2, "Fact: The white cube symbolizes ADSKer")
+     elseif ranf == 5 then
+     CreateChatBubble(god2, "Fact: This is the best place to relax and calm down, enjoy the beauty of music and the source code of this script")
+     end
+       wait(4)
+       prompt2.Enabled = true
+    end)
+end
+
+local function clocks()
+local pclock = Instance.new("Part")
+pclock.Name = "Clock Primary Part"
+pclock.Size = Vector3.new(4, 10, 4)
+pclock.Anchored = true
+pclock.Color = Color3.fromRGB(128,128,128)
+pclock.Material = Enum.Material.Metal
+pclock.Position = Vector3.new(-44, 10007.5, 456)
+pclock.Parent = game.Workspace
+
+local clock = Instance.new("Part")
+clock.Name = "Clock"
+clock.Size = Vector3.new(5, 5, 5)
+clock.Anchored = true
+clock.Color = Color3.fromRGB(128,128,128)
+clock.Material = Enum.Material.Metal
+clock.Position = Vector3.new(-44, 10013, 456)
+clock.Parent = game.Workspace
+
+local billboardGui = Instance.new("BillboardGui")
+        billboardGui.Name = "ChatBillboardGui"
+        billboardGui.Adornee = clock
+        billboardGui.Size = UDim2.new(0, 200, 0, 50)
+        billboardGui.StudsOffset = Vector3.new(0, 2, 0)
+        billboardGui.AlwaysOnTop = true
+        billboardGui.LightInfluence = 1
+        billboardGui.MaxDistance = 40
+        billboardGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+        local msg = Instance.new("TextLabel")
+        msg.Name = "ChatMessageLabel"
+        msg.Text = ""
+        msg.Size = UDim2.new(1, 0, 1, 0)
+        msg.BackgroundTransparency = 1
+        msg.TextColor3 = Color3.new(1, 1, 1)
+        msg.TextScaled = true
+        msg.TextStrokeColor3 = Color3.new(0, 0, 0)
+        msg.TextStrokeTransparency = 0
+        msg.Visible = true
+        msg.Parent = billboardGui
+
+        billboardGui.Parent = clock
+
+game:GetService("RunService").Heartbeat:Connect(function()
+   msg.Text = game.Lighting.TimeOfDay
+end)
+end
+
+coroutine.wrap(npc2)()
+coroutine.wrap(clocks)()
 coroutine.wrap(effects)()
 coroutine.wrap(part)()
 coroutine.wrap(ambient)()
