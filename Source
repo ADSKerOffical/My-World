@@ -45,7 +45,7 @@ end
     
 prompt = Instance.new("ProximityPrompt")
     prompt.Name = "Conversation with the Celestial Being"
-    prompt.ActionText = "Use"
+    prompt.ActionText = "Talk"
     prompt.Parent = god
 
     prompt.Triggered:Connect(function(player)
@@ -61,7 +61,7 @@ prompt = Instance.new("ProximityPrompt")
 end
 
 local function house1()
-for u = 1, 5 do
+for u = 1, 7 do
  if u == 1 then
  boxpos = Vector3.new(-97, 10010, 191)
 pos = Vector3.new(-97, 10005, 191)
@@ -77,6 +77,12 @@ boxpos = Vector3.new(-516, 10010, 347)
  elseif u == 5 then
 boxpos = Vector3.new(-448, 10010, 629)
  pos = Vector3.new(-448, 10005, 629)
+ elseif u == 6 then
+boxpos = Vector3.new(89, 10010, 396)
+ pos = Vector3.new(89, 10005, 396)
+ elseif u == 7 then
+boxpos = Vector3.new(-259, 10010, 408)
+ pos = Vector3.new(-259, 10005, 408)
 end
 local assetId = tonumber(8959904556)
   if not assetId then
