@@ -501,6 +501,231 @@ game:GetService("RunService").Heartbeat:Connect(function()
 end)
 end
 
+local function island2()
+rainS = Instance.new("Sound", workspace)
+rainS.SoundId = "rbxassetid://9064263922"
+rainS.Volume = 0.5
+rainS.PlaybackSpeed = 1
+rainS.Looped = true
+rainS:Play()
+
+island = Instance.new("Part")
+island.Name = "2 Island"
+island.Size = Vector3.new(50000, 5, 50000)
+island.Color = Color3.fromRGB(85, 85, 85)
+island.Transparency = 0
+island.Anchored = true
+island.Material = Enum.Material.Metal
+island.Position = Vector3.new(-2750, 30000, 1785)
+island.Parent = game.Workspace
+end
+
+local function I2effects()
+for i, v in pairs(game.Lighting:GetDescendants()) do
+        if v:IsA("BloomEffect") or v:IsA("BlurEffect") or v:IsA("SunRaysEffect") then
+            v.Enabled = false
+        end
+    end
+game.Lighting.FogStart = 10
+game.Lighting.FogEnd = 50
+game.Lighting.FogColor = Color3.new(0,0,0)
+game.Lighting.ExposureCompensation = -0.5
+game.Lighting.TimeOfDay = "23:00:00"
+end
+
+local function walksound()
+local Humanoid = game.Players.LocalPlayer.Character:FindFirstChild("Humanoid")
+local Walk = Humanoid.RootPart:FindFirstChild("Running")
+while true do
+	wait()
+	if Humanoid then
+		if Humanoid.FloorMaterial == Enum.Material.Grass then
+			Walk.SoundId = "rbxassetid://177940963"
+			Walk.PlaybackSpeed = 1
+		elseif Humanoid.FloorMaterial == Enum.Material.Concrete then
+			Walk.SoundId = "rbxassetid://277067660"
+			Walk.Volume = 2
+		elseif Humanoid.FloorMaterial == Enum.Material.Plastic then
+			Walk.SoundId = "rbxassetid://833564121"
+			Walk.Volume = 2
+	    elseif Humanoid.FloorMaterial == Enum.Material.Metal then
+	        Walk.SoundId = "rbxassetid://177940974"
+	        Walk.Volume = 2
+	    elseif Humanoid.FloorMaterial == Enum.Material.Sand then
+	        Walk.SoundId = "rbxassetid://212011266"
+	    elseif Humanoid.FloorMaterial == Enum.Material.Gravel then
+	        Walk.SoundId = "rbxassetid://178054124"
+	    elseif Humanoid.FloorMaterial == Enum.Material.Wood then
+	        Walk.SoundId = "rbxassetid://177940988"
+		end
+	end
+end
+end
+
+local function hermithouse()
+local assetId = tonumber(18294217347)
+  if not assetId then
+   warn("Invalid asset ID")
+   return
+  end
+local user = game.Players.LocalPlayer
+ 
+  local model = game:GetObjects("rbxassetid://" .. assetId)[1]
+model.Parent = workspace
+model:MakeJoints() 
+model:MoveTo(Vector3.new(475, 10005, -421))
+
+local hermit = Instance.new("Part", workspace)
+    hermit.Name = "Hermit"
+    hermit.Size = Vector3.new(5, 5, 5)
+    hermit.Color = Color3.fromRGB(128,128,128)
+    hermit.Material = Enum.Material.Neon
+    hermit.Anchored = true
+    hermit.Position = Vector3.new(458, 10026, -419)
+    
+  function CreateChatBubble(instance, message)
+ game.Chat:Chat(instance, message, Enum.ChatColor.White)
+end
+
+    prompt4 = Instance.new("ProximityPrompt")
+    prompt4.Name = "Talk with Hermit"
+    prompt4.ActionText = "Talk"
+    prompt4.Parent = hermit
+
+    prompt4.Triggered:Connect(function()
+      prompt4.Enabled = false
+      CreateChatBubble(hermit, "Hello Player")
+       wait(2.5)
+      CreateChatBubble(hermit, "I see that you came to my house and I think that you want to get out of this place")
+       wait(6)
+      CreateChatBubble(hermit, "Well since you came here then I can tell you to the second island")
+       wait(4.5)
+      CreateChatBubble(hermit, "There are special objects and teleporters in my house")
+       wait(3)
+      CreateChatBubble(hermit, "On the balcony there are teleports to different places and there is also a teleport to the second island, but it is different from this island")
+       wait(7)
+      CreateChatBubble(hermit, "I wish you good luck on your adventures")
+   end)
+   
+   local teleporter = Instance.new("Part", workspace)
+    teleporter.Name = "Hermit"
+    teleporter.Size = Vector3.new(5, 5, 5)
+    teleporter.Color = Color3.fromRGB(0,0,255)
+    teleporter.Material = Enum.Material.Neon
+    teleporter.Anchored = true
+    teleporter.Position = Vector3.new(507, 10026, -408)
+    
+    tps = Instance.new("Sound", teleporter)
+    tps.Name = "ASMR"
+    tps.SoundId = "rbxassetid://115327352"
+    tps.Volume = 0.5
+    tps.PlaybackSpeed = 3
+    tps.Looped = true
+    tps:Play()
+    
+    fireParticles = Instance.new("ParticleEmitter")
+fireParticles.Name = "Island2 Teleporter Particle"
+fireParticles.Enabled = true
+fireParticles.Lifetime = NumberRange.new(0, 1)
+fireParticles.Rate = 10
+fireParticles.Rotation = NumberRange.new(0, 360)
+fireParticles.RotSpeed = NumberRange.new(-360, 360)
+fireParticles.Size = NumberSequence.new(2, 0)
+fireParticles.Speed = NumberRange.new(3, 5)
+fireParticles.SpreadAngle = Vector2.new(360, 360)
+fireParticles.Texture = "rbxassetid://401407269"
+fireParticles.Parent = teleporter
+    
+    prompt5 = Instance.new("ProximityPrompt")
+    prompt5.Name = "Teleport into hell"
+    prompt5.ActionText = "Teleport"
+    prompt5.HoldDuration = 10
+    prompt5.Parent = teleporter
+
+    prompt5.Triggered:Connect(function()
+      prompt5.Enabled = false
+      game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2750, 30010, 1785)
+      coroutine.wrap(island2)()
+      coroutine.wrap(I2effects)()
+      game.Workspace:FindFirstChild("The true meaning of life"):Stop()
+   end)
+end
+
+local function barries()
+local barrierFolder = Instance.new("Folder")
+barrierFolder.Name = "BarriersFolder"
+barrierFolder.Parent = game.Workspace
+
+barrierS = Instance.new("Sound", game.Workspace)
+barrierS.Name = "Barrier Sound Touch"
+barrierS.SoundId = "rbxassetid://6343741731"
+barrierS.Volume = 1
+barrierS.PlaybackSpeed = 1
+barrierS.Looped = false
+
+local function onTouch(hit)
+            if hit.Parent:FindFirstChild("Humanoid") then
+                local humanoid = hit.Parent.Humanoid
+          humanoid.RootPart.Velocity = humanoid.RootPart.CFrame.LookVector * -650 + Vector3.new(0,100,0)
+          humanoid.PlatformStand = true
+          humanoid.Sit = true
+          barrierS:Play()
+          wait(3)
+          humanoid.PlatformStand = false
+          humanoid.Sit = false
+              end
+end
+
+local barrier1 = Instance.new("Part")
+barrier1.Name = "Barrier"
+barrier1.Size = Vector3.new(50000, 5, 50000)
+barrier1.Transparency = 1
+barrier1.Anchored = true
+barrier1.Position = Vector3.new(1000, 10005, 65)
+barrier1.Orientation = Vector3.new(0,0,90)
+barrier1.Parent = barrierFolder
+
+local barrier2 = Instance.new("Part")
+barrier2.Name = "Barrier"
+barrier2.Size = Vector3.new(50000, 5, 50000)
+barrier2.Transparency = 1
+barrier2.Anchored = true
+barrier2.Position = Vector3.new(-1000, 10005, 65)
+barrier2.Orientation = Vector3.new(0,0,90)
+barrier2.Parent = barrierFolder
+
+local barrier3 = Instance.new("Part")
+barrier3.Name = "Barrier"
+barrier3.Size = Vector3.new(50000, 5, 50000)
+barrier3.Transparency = 1
+barrier3.Anchored = true
+barrier3.Position = Vector3.new(0, 10005, 1070)
+barrier3.Orientation = Vector3.new(90,0,0)
+barrier3.Parent = barrierFolder
+
+local barrier4 = Instance.new("Part")
+barrier4.Name = "Barrier"
+barrier4.Size = Vector3.new(50000, 5, 50000)
+barrier4.Transparency = 1
+barrier4.Anchored = true
+barrier4.Position = Vector3.new(0, 10005, -950)
+barrier4.Orientation = Vector3.new(90,0,0)
+barrier4.Parent = barrierFolder
+
+barrier5 = Instance.new("Part")
+barrier5.Name = "Barrier Ceiling"
+barrier5.Size = Vector3.new(50000, 5, 50000)
+barrier5.Transparency = 1
+barrier5.Anchored = true
+barrier5.Position = Vector3.new(-1, 10400, 66)
+barrier5.Parent = barrierFolder
+
+barrier1.Touched:Connect(onTouch)
+barrier2.Touched:Connect(onTouch)
+barrier3.Touched:Connect(onTouch)
+barrier4.Touched:Connect(onTouch)
+end
+
 coroutine.wrap(clocks)()
 coroutine.wrap(effects)()
 coroutine.wrap(part)()
@@ -509,3 +734,6 @@ coroutine.wrap(house1)()
 coroutine.wrap(TimeofDay)()
 coroutine.wrap(npc1)()
 coroutine.wrap(npc2)()
+coroutine.wrap(hermithouse)()
+coroutine.wrap(walksound)()
+coroutine.wrap(barries)()
